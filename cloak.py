@@ -37,7 +37,7 @@ while cap.isOpened():
     mask2=cv2.inRange(hsv,lower_red2,upper_red2)
     mask=mask1+mask2
     # now we will refine a mask for that red areas
-    mask=cv2.moropholgyEX(mask,cv2.MORPH_OPEN,np.ones((3,3), np.uint8))
+    mask=cv2.morphologyEx(mask,cv2.MORPH_OPEN,np.ones((3,3), np.uint8))
     mask=cv2.dilate(mask,np.ones((3,3),np.uint8),iterations=1)
     mask_inv=cv2.bitwise_not(mask)
 
